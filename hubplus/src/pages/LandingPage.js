@@ -1,8 +1,8 @@
 // HeroSection.js
 import React from 'react';
-import './HeroSection.css'; // Import CSS for styling
+import './LandingPage.css'; // Import CSS for styling
 
-const HeroSection = () => {
+const LandingPage = () => {
     return (
         <section className="hero">
             <div className="hero-content">
@@ -14,4 +14,4 @@ const HeroSection = () => {
     );
 }
 
-export default HeroSection;
+export default LandingPage;
