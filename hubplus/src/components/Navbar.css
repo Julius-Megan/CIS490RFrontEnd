@@ -1,0 +1,35 @@
+/* navbar.css */
+.navbar {
+    background-color: #292b33; /* Background color */
+    color: #fff; /* Text color */
+    text-align: center; /* Center-align the text */
+    font-size: 3.5rem; /* Increase font size */
+}
+
+.container {
+    display: flex;
+    justify-content: center; /* Center-align items horizontally */
+    align-items: center;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline;
+    margin-right: 3rem;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 3rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ddd;
+}
