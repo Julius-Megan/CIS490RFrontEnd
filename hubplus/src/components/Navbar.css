@@ -33,6 +33,11 @@ header {
     font-weight: bold;
 }
 
+.logo img {
+    max-width: 100%; /* Ensure the logo image does not exceed its container */
+    height: auto; /* Maintain the aspect ratio of the logo image */
+}
+
 .nav-links ul {
     list-style: none;
     margin: 0;
@@ -69,5 +74,5 @@ header {
 }
 
 .signup-button .button:hover {
-    background-color: #feb47b;
+    background-color: #b5233e;
 }
