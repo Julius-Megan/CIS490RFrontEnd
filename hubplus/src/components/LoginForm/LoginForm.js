@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './LoginForm.css'
 
-import { FaUser, FaLock  } from "react-icons/fa";
+import { FaLock  } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 
 const LoginForm = () => {
@@ -64,7 +64,7 @@ const LoginForm = () => {
                 {error && <p className="error-message">{error}</p>}
 
                 <div className="register-link">
-                    <p>Don't have an account? <a href="#">Register</a></p>
+                    <p>Don't have an account? <a href="/signup">Sign Up</a></p>
                 </div>
             </form>
         </div>
