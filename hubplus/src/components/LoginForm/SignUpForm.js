@@ -6,6 +6,7 @@ import { CiMail } from "react-icons/ci";
 
 const SignUpForm = () => {  
 
+    
     const [name, setName] = useState('');
     const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
@@ -18,7 +19,7 @@ const SignUpForm = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post('http://localhost:3001/api/signup', {
+            const response = await axios.post('http://localhost:3001/api/auth/signup', {
                 name,
                 lastname,
                 email,
@@ -82,7 +83,7 @@ const SignUpForm = () => {
                 <button type="submit">Sign Up</button>
 
                 <div className="register-link">
-                    <p>Already have an account? <a href="#">Login</a></p>
+                    <p>Already have an account? <a href="/login">Login</a></p>
                 </div>
             </form>
         </div>
