@@ -9,6 +9,7 @@ const App = () => {
         <div>
             <Navbar />
             <HeroSection/>
+            
             <Footer/>
             {/* Other components go here */}
         </div>

@@ -5,11 +5,9 @@ import './HeroSection.css'; // Import CSS for styling
 const HeroSection = () => {
     return (
         <section className="hero">
-            <div className="hero-content">
-                <a href="#services" className="hero-button">Enter HUB+</a>
-            </div>
+            <a href="#services" className="hero-button">Enter HUB+</a>
         </section>
-    );
+    );  
 }
 
 export default HeroSection;

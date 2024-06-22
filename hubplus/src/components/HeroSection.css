@@ -8,23 +8,19 @@
     padding: 200px 0; /* Adjust padding as needed */
 }
 
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-
-}
-
-
 .hero-button {
-    padding: 10px 20px;
-    background: linear-gradient(45deg, #7a1e10, #9c1a32);
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 15px 30px;
+    color: white;
     background-color: #9c1a32;
-    color: #fff;
     text-decoration: none;
-    border-radius: 5px;
-    font-size: 1rem;
+    border: 2px solid #ffffff;
+    cursor: pointer;
+    
+}
+.hero-button:hover {
+    background-color: #670b1b;
 }
 
-.hero-button:hover {
-    background-color: linear-gradient(35deg, hsla(349, 71%, 36%, 1), #ff8000);
-}
+
