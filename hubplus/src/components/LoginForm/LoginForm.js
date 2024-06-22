@@ -1,18 +1,57 @@
-import React from "react";
+import React, { useState } from 'react';
+import axios from 'axios';
 import './LoginForm.css'
+
 import { FaUser, FaLock  } from "react-icons/fa";
+import { CiMail } from "react-icons/ci";
 
 const LoginForm = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        try {
+            const response = await axios.post('http://localhost:3001/api/auth/login', { email, password });
+            console.log('Login successful:', response.data);
+            setLoading(false);
+
+            setEmail('');
+            setPassword('');
+            setError('');
+        } catch (err) {
+            setError('Login failed. Please check your credentials and try again.');
+            setLoading(false);
+        }
+    };
+
+
     return (
         <div className="wrapper">
-            <form action="">
+            <form onSubmit={handleSubmit}>
                 <h1>Login</h1>
                 <div className="input-box">
-                    <input type="text" placeholder="Username" required />
-                    <FaUser className="icon" />
+                    <input 
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                    <CiMail className="icon" />
                 </div>
                 <div className="input-box">
-                    <input type="password" placeholder="Password" required />
+                    <input 
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
                     <FaLock className="icon"/>
                 </div>
                 <div className="remember-forgot">
@@ -20,7 +59,9 @@ const LoginForm = () => {
                     <a href="#">Forgot password?</a>
                 </div>
 
-                <button type="submit">Login</button>
+                <button type="submit" disabled={loading}>Login</button>
+
+                {error && <p className="error-message">{error}</p>}
 
                 <div className="register-link">
                     <p>Don't have an account? <a href="#">Register</a></p>

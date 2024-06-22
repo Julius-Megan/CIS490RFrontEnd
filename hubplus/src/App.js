@@ -1,24 +1,20 @@
 // App.js
 import React from 'react';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import HeroSection from './components/HeroSection';
+import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
+import Home from './pages/Home';
 import LoginForm from './components/LoginForm/LoginForm';
 import SignUpForm from './components/LoginForm/SignUpForm';
 
 const App = () => {
     return (
-        <div>
-            <SignUpForm/>
-            {/* 
-            
-            <Navbar />
-            <HeroSection/>
-            
-            <Footer/>
-            
-            Other components go here */}
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route exact path="/" element={<Home />} />
+                <Route path="/login" element={<LoginForm/>} />
+                <Route path="/signup" element={<SignUpForm/>} />
+            </Routes>
+
+        </BrowserRouter>
     );
 }
 
