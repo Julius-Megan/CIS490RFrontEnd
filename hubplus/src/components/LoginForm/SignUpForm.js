@@ -9,7 +9,11 @@ const SignUpForm = () => {
             <form action="">
                 <h1>Sign Up</h1>
                 <div className="input-box">
-                    <input type="text" placeholder="Username" required />
+                    <input type="text" placeholder="Name" required />
+                    <FaUser className="icon" />
+                </div>
+                <div className="input-box">
+                    <input type="text" placeholder="Lastname" required />
                     <FaUser className="icon" />
                 </div>
                 <div className="input-box">
