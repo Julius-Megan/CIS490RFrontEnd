@@ -57,37 +57,39 @@ const SignUpForm = () => {
 
 
     return (
-        <div className="wrapper">
-            <form onSubmit={handleSubmit}>
-                <h1>Sign Up</h1>
-                <div className="input-box">
-                    <input type="text" name="name" placeholder="Name" value={name} onChange={handleChange}required />
-                    <FaUser className="icon" />
-                </div>
-                <div className="input-box">
-                    <input type="text" name="lastname" placeholder="Lastname" value={lastname} onChange={handleChange} required />
-                    <FaUser className="icon" />
-                </div>
-                <div className="input-box">
-                    <input type="email" name="email" placeholder="Email" value={email} onChange={handleChange} required />
-                    <CiMail className="icon"/>
-                </div>
-                <div className="input-box">
-                    <input type="password" name="password" placeholder="Password" value={password} onChange={handleChange} required />
-                    <FaLock className="icon"/>
-                </div>
-                <div className="remember-forgot">
-                    <label><input type="checkbox" />I agree to the terms & conditions</label>
-                </div>
+        <div className='container'>
+            <div className="wrapper">
+                <form onSubmit={handleSubmit}>
+                    <h1>Sign Up</h1>
+                    <div className="input-box">
+                        <input type="text" name="name" placeholder="Name" value={name} onChange={handleChange}required />
+                        <FaUser className="icon" />
+                    </div>
+                    <div className="input-box">
+                        <input type="text" name="lastname" placeholder="Lastname" value={lastname} onChange={handleChange} required />
+                        <FaUser className="icon" />
+                    </div>
+                    <div className="input-box">
+                        <input type="email" name="email" placeholder="Email" value={email} onChange={handleChange} required />
+                        <CiMail className="icon"/>
+                    </div>
+                    <div className="input-box">
+                        <input type="password" name="password" placeholder="Password" value={password} onChange={handleChange} required />
+                        <FaLock className="icon"/>
+                    </div>
+                    <div className="remember-forgot">
+                        <label><input type="checkbox" />I agree to the terms & conditions</label>
+                    </div>
 
-                <button type="submit">Sign Up</button>
+                    <button type="submit">Sign Up</button>
 
-                <div className="register-link">
-                    <p>Already have an account? <a href="/login">Login</a></p>
-                </div>
-            </form>
+                    <div className="register-link">
+                        <p>Already have an account? <a href="/login">Login</a></p>
+                    </div>
+                </form>
+            </div>
         </div>
-    )
+    ) 
 }
 
 export default SignUpForm
