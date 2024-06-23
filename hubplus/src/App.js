@@ -1,22 +1,41 @@
 // App.js
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Home from './pages/Home';
 import LoginForm from './components/LoginForm/LoginForm';
 import SignUpForm from './components/LoginForm/SignUpForm';
 import Navbar from './components/Navbar';
 
 const App = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        const token =localStorage.getItem('item');
+        if (token) {
+            setIsLoggedIn(true);
+        }
+    }, []);
+
+    const handleLogin = (token) => {
+        localStorage.setItem('token', token);
+        setIsLoggedIn(true);
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        setIsLoggedIn(false);
+    };
+
     return (
         <Router>
             <div>
-                <Navbar />
+                <Navbar isLoggedIn={isLoggedIn} handleLogout={handleLogout}/>
                 <Routes>
                     <Route exact path="/" element={<Home />} />
-                    <Route path="/login" element={<LoginForm/>} />
+                    <Route path="/login" element={<LoginForm onLogin={handleLogin}/>} />
                     <Route path="/signup" element={<SignUpForm/>} />
                 </Routes>
-
+qwr
             </div>
         </Router>
     );

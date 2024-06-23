@@ -1,7 +1,8 @@
 import React from 'react';
 import './Navbar.css'; // Import CSS for styling
+import { FaUserCircle } from 'react-icons/fa';
 
-const Navbar = () => {
+const Navbar = ({isLoggedIn, handleLogout}) => {
     return (
         <header>
             <nav className='nav-container'>
@@ -18,9 +19,18 @@ const Navbar = () => {
                         <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
-                <div className='signup-button'>
-                    <a href="/signup" className="button">Sign Up</a>
+                <div className="auth-section">
+                    {isLoggedIn ? (
+                        <div>
+                            <FaUserCircle size={30} onClick={handleLogout} title="Logout" style={{ cursor: 'pointer' }} />
+                        </div>
+                    ):(
+                        <div className='signup-button'>
+                            <a href="/signup" className="button">Sign Up</a>
+                        </div>
+                    )}
                 </div>
+
             </nav>
         </header>
 

@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './LoginForm.css'
-import Navbar from '../Navbar';
-
 import { FaLock  } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
 
-const LoginForm = () => {
+const LoginForm = ({onLogin}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -18,9 +16,14 @@ const LoginForm = () => {
 
         try {
             const response = await axios.post('http://localhost:3001/api/auth/login', { email, password });
-            console.log('Login successful:', response.data);
-            setLoading(false);
+            const token = response.data.token;
+            console.log('Login successful:', token);
 
+            localStorage.setItem('token', token);
+            // Update the parent component about the login state
+            onLogin(token);
+
+            setLoading(false);
             setEmail('');
             setPassword('');
             setError('');
