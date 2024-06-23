@@ -23,6 +23,7 @@ const Navbar = ({isLoggedIn, handleLogout}) => {
                     {isLoggedIn ? (
                         <div>
                             <FaUserCircle size={30} onClick={handleLogout} title="Logout" style={{ cursor: 'pointer' }} />
+                            <span className='logout-text' >Logout</span>
                         </div>
                     ):(
                         <div className='signup-button'>
