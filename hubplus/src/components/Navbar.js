@@ -1,8 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Navbar.css'; // Import CSS for styling
 import { FaUserCircle } from 'react-icons/fa';
 
-const Navbar = ({isLoggedIn, handleLogout}) => {
+const Navbar = ({isLoggedIn, handleLogout }) => {
+
+    const [dropdownVisible, setDropdownVisible] = useState(false);
+
+    const toggleDropdown = () => {
+        setDropdownVisible(!dropdownVisible);
+    };
+
+    const handleLogoutClick = () => {
+        handleLogout();
+        setDropdownVisible(false);
+    };
+
     return (
         <header>
             <nav className='nav-container'>
@@ -21,9 +33,14 @@ const Navbar = ({isLoggedIn, handleLogout}) => {
                 </div>
                 <div className="auth-section">
                     {isLoggedIn ? (
-                        <div>
-                            <FaUserCircle size={30} onClick={handleLogout} title="Logout" style={{ cursor: 'pointer' }} />
-                            <span className='logout-text' >Logout</span>
+                        <div className='profile-container'>
+                            <FaUserCircle size={30} onClick={toggleDropdown} style={{ cursor: 'pointer' }} />
+                            {dropdownVisible && (
+                                <div className='dropdown-menu'>
+                                    <a href='/profile/:id'>Profile</a>
+                                    <a href='/' onClick={handleLogoutClick}>Logout</a>
+                                </div>
+                            )}
                         </div>
                     ):(
                         <div className='signup-button'>
