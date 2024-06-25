@@ -38,7 +38,7 @@ const LoginForm = ({onLogin}) => {
             setPassword('');
             setError('');
 
-            //navigate('/profile/${id}');
+            navigate(`/profile/${id}`);
         } catch (err) {
             setError('Login failed. Please check your credentials and try again.');
             setLoading(false);

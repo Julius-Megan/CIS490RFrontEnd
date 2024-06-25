@@ -19,13 +19,11 @@ const App = () => {
 
     const handleLogin = (token, id) => {
         localStorage.setItem('token', token);
-        localStorage.setItem('id', id); // Set id in localStorage
         setIsLoggedIn(true);
     };
 
     const handleLogout = () => {
         localStorage.removeItem('token');
-        localStorage.removeItem('id');
         setIsLoggedIn(false);
     };
 
@@ -37,7 +35,7 @@ const App = () => {
                     <Route exact path="/" element={<Home />} />
                     <Route path="/login" element={<LoginForm onLogin={handleLogin}/>} />
                     <Route path="/signup" element={<SignUpForm/>} />
-                    <Route path="/profile/${id}" element={<Profile/>} />
+                    <Route path="/profile/:id" element={<Profile/>} />
                 </Routes>
             </div>
         </Router>

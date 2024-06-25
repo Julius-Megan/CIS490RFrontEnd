@@ -17,7 +17,7 @@ const Profile = () => {
 
     useEffect(() => {
         const fetchUserData = async () => {
-            try {
+            try {   
                 const token = getToken();
                 if (!token) {
                     throw new Error('No token available');
@@ -25,13 +25,15 @@ const Profile = () => {
 
                 const response = await axios.get(`http://localhost:3001/api/users/${id}`, {
                     headers: {
-                        'Authorization': `Bearer ${token}`
+                        'Authorization': `${token}`
                     }
                 });
                 setUserData(response.data);
                 setLoading(false);
+                
             } catch (error) {
                 setError('Error fetching user data');
+                console.error('Error fetching user data:', error);
                 setLoading(false);
             }
         };
@@ -44,12 +46,15 @@ const Profile = () => {
     if (!userData) return null; // Or some default message
 
     return (
-        <div>
+        <div className='profile-container'>
             <h2>User Profile</h2>
-            <p>Name: {userData.name}</p>
-            <p>LastName: {userData.lastname}</p>
-            <p>Email: {userData.email}</p>
-            {/* Add more fields as per your API response */}
+            <div className="profile-info">
+                <p>Name: {userData.user.name}</p>
+                <p>LastName: {userData.user.lastname}</p>
+                <p>Email: {userData.user.email}</p>
+                {/* Add more fields as per your API response */}
+            </div>
+
         </div>
     );
 };
