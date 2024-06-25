@@ -27,7 +27,7 @@ const Navbar = ({isLoggedIn, handleLogout }) => {
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/games">Games</a></li>
-                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="https://hookahua.byuh.edu/the-hub">TheHub</a></li>
                     </ul>
                 </div>
                 <div className="auth-section">

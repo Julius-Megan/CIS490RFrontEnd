@@ -3,6 +3,7 @@ import axios from 'axios';
 import './LoginForm.css'
 import { FaUser, FaLock} from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
+import { useNavigate } from 'react-router-dom';
 
 const SignUpForm = () => {  
 
@@ -13,6 +14,7 @@ const SignUpForm = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -27,6 +29,7 @@ const SignUpForm = () => {
             });
             console.log('Signup successful:', response.data);
             setLoading(false);
+            navigate('/login');
             // Optionally handle successful signup (e.g., redirect to login)
         } catch (err) {
             setError('Signup failed. Please try again.');

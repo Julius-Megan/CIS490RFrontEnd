@@ -20,11 +20,11 @@ const Games = () => {
     const getToken = () => {
         return localStorage.getItem('token');
     };
+    const token = getToken();
 
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        const token = getToken();
         if (!token) {
             throw new Error('No token available');
         }
@@ -56,7 +56,11 @@ const Games = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/api/games', newGame);
+      const response = await axios.post('http://localhost:3001/api/games', newGame, {
+        headers: {
+            'Authorization': `${token}`
+        }
+    });
       setGames([...games, response.data]);
       setShowForm(false);
       setNewGame({
