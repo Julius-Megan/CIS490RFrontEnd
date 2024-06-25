@@ -10,10 +10,24 @@ const Profile = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
+    // Function to retrieve the JWT token from localStorage
+    const getToken = () => {
+        return localStorage.getItem('token');
+    };
+
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/api/users/${id}`);
+                const token = getToken();
+                if (!token) {
+                    throw new Error('No token available');
+                }
+
+                const response = await axios.get(`http://localhost:3001/api/users/${id}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
                 setUserData(response.data);
                 setLoading(false);
             } catch (error) {
@@ -33,6 +47,7 @@ const Profile = () => {
         <div>
             <h2>User Profile</h2>
             <p>Name: {userData.name}</p>
+            <p>LastName: {userData.lastname}</p>
             <p>Email: {userData.email}</p>
             {/* Add more fields as per your API response */}
         </div>

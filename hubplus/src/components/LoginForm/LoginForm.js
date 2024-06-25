@@ -3,30 +3,42 @@ import axios from 'axios';
 import './LoginForm.css'
 import { FaLock  } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
+import { useNavigate } from 'react-router-dom'; // Import useHistory hook
 
 const LoginForm = ({onLogin}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate(); //Initialize useHistory hook
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Basic client-side validation
+        if (!email || !password) {
+            setError('Please enter both email and password.');
+            return;
+        }
+
         setLoading(true);
 
         try {
             const response = await axios.post('http://localhost:3001/api/auth/login', { email, password });
-            const token = response.data.token;
+            const { token, id } = response.data;
             console.log('Login successful:', token);
+            console.log('ID', id);
 
             localStorage.setItem('token', token);
             // Update the parent component about the login state
-            onLogin(token);
+            onLogin(token, id);
 
             setLoading(false);
             setEmail('');
             setPassword('');
             setError('');
+
+            //navigate('/profile/${id}');
         } catch (err) {
             setError('Login failed. Please check your credentials and try again.');
             setLoading(false);
