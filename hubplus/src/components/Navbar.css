@@ -34,7 +34,7 @@ header {
 }
 
 .logo img {
-    max-width: 100%; /* Ensure the logo image does not exceed its container */
+    max-width: 50%; /* Ensure the logo image does not exceed its container */
     height: auto; /* Maintain the aspect ratio of the logo image */
 }
 

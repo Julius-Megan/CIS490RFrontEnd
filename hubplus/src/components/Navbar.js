@@ -20,13 +20,12 @@ const Navbar = ({isLoggedIn, handleLogout }) => {
             <nav className='nav-container'>
                 <div className='logo'>
                     <a href='/'>
-                        <img src="./hubDoor.jpg" alt='Logo'/>
+                        <img src="/hub+.png" alt='Logo'/>
                     </a>
                 </div>
                 <div className='nav-links'>
                     <ul>
-                        <li><a href="/">Maps</a></li>
-                        <li><a href="/about">HUB</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="/games">Games</a></li>
                         <li><a href="/contact">Contact</a></li>
                     </ul>

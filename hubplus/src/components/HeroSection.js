@@ -5,7 +5,7 @@ import './HeroSection.css'; // Import CSS for styling
 const HeroSection = () => {
     return (
         <section className="hero">
-            <a href="#services" className="hero-button">Enter HUB Portal</a>
+            <a href="/login" className="hero-button">Enter HUB Portal</a>
         </section>
     );  
 }
