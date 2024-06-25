@@ -27,7 +27,7 @@ const Navbar = ({isLoggedIn, handleLogout }) => {
                     <ul>
                         <li><a href="/">Maps</a></li>
                         <li><a href="/about">HUB</a></li>
-                        <li><a href="/services">Games</a></li>
+                        <li><a href="/games">Games</a></li>
                         <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
