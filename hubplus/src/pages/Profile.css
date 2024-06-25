@@ -1,25 +1,14 @@
 /* Profile.css */
 
-/* General page styling */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
 /* Container for the profile card */
 .profile-container {
-    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
     padding: 20px;
     text-align: center;
+    margin: 20px auto; /* This adds margin on the top and bottom, and centers the container horizontally */
+    font-family: Arial, sans-serif;
 }
 
 /* Header styling */

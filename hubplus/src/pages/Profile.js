@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom'; // Import useParams to access route parameters
+import './Profile.css';
 
 const Profile = () => {
     const { id } = useParams(); // Extract 'id' parameter from the URL
