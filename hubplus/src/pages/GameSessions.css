@@ -1,0 +1,33 @@
+.game-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    margin: 0 auto;
+  }
+  
+  .game-detail-box {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    background-color: #f9f9f9;
+  }
+  
+  .game-detail-box h2 {
+    margin-top: 0;
+    font-size: 2em;
+  }
+  
+  .game-detail-box p {
+    margin: 10px 0;
+  }
+  
+  .game-detail-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  

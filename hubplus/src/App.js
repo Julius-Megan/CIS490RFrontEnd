@@ -7,6 +7,8 @@ import SignUpForm from './components/LoginForm/SignUpForm';
 import Navbar from './components/Navbar';
 import Profile from './pages/Profile';
 import Games from './pages/Games';
+import GameSessions from './pages/GameSessions';
+
 
 const App = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -38,6 +40,7 @@ const App = () => {
                     <Route path="/signup" element={<SignUpForm/>} />
                     <Route path="/profile/:id" element={<Profile/>} />
                     <Route path="/games" element={<Games/>} />
+                    <Route path="games/:id" element={<GameSessions/>} />
                 </Routes>
             </div>
         </Router>

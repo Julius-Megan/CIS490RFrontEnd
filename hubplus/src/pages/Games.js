@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Games.css'
+import './Games.css';
+import {Link} from 'react-router-dom';
 
 const Games = () => {
   const [games, setGames] = useState([]);
@@ -16,11 +17,8 @@ const Games = () => {
     imageURL: ''
   });
 
-    // Function to retrieve the JWT token from localStorage
-    const getToken = () => {
-        return localStorage.getItem('token');
-    };
-    const token = getToken();
+  const [token] = useState(localStorage.getItem('token'));
+
 
   useEffect(() => {
     const fetchGames = async () => {
@@ -43,7 +41,7 @@ const Games = () => {
     };
 
     fetchGames();
-  }, []);
+  }, [token]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -126,9 +124,9 @@ const Games = () => {
       )}
       <div className="games-container">
         {games.map((game) => (
-          <div className="game-box" key={game.id}>
-            <h2>{game.name}</h2>
-            <p>{game.description}</p>
+          <div className="game-box" key={game._id}>
+            <h2><Link to={`/games/${game._id}`}>{game.name}</Link></h2>
+            <p>{game.description}</p> 
             <p><strong>Category:</strong> {game.category}</p>
             {game.imageURL && <img src={game.imageURL} alt={game.name} className="game-image" />}
             {/* Add more details as needed */}
